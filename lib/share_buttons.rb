@@ -11,4 +11,21 @@ module ShareButtons
   autoload :GooglePlus, 'share_buttons/google_plus'
   autoload :Email, 'share_buttons/email'
   autoload :Link, 'share_buttons/link'
+
+  HELPER_NAMES = %w(facebook twitter google_plus email link)
+
+  def self.configure(&block)
+    configuration = ShareButtons::Configuration.new
+    block_given? ? yield(configuration) : configuration
+  end
+
+  class Configuration
+    # Allow users to configure each provider class attributes by accessing
+    # `config.provider_name.attribute`
+    HELPER_NAMES.each do |helper|
+      define_method(helper) do
+        ShareButtons.const_get(helper.camelize)
+      end
+    end
+  end
 end

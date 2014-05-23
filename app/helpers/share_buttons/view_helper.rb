@@ -1,6 +1,6 @@
 module ShareButtons
   module ViewHelper
-    %w(facebook twitter google_plus email link).each do |medium|
+    ShareButtons::HELPER_NAMES.each do |medium|
       define_method(:"#{ medium }_share_button") do |*args|
         url, options = extract_url_and_options(*args)
 

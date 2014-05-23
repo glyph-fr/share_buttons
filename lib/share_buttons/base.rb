@@ -29,5 +29,10 @@ module ShareButtons
     def url_options
       {}
     end
+
+    # More explicit shortcut to access class attributes
+    def config
+      self.class
+    end
   end
 end

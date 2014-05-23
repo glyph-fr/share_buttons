@@ -1,6 +1,13 @@
 # Share Buttons
 
-Small sharing buttons helpers lib
+Small sharing buttons helpers lib.
+
+**Note :** Templates markup is written with
+[Twitter Bootstrap v3](http://getbootstrap.com/) in mind and the javascript for
+the `link_share_button` helper uses Bootsrap's `collapse` plugin.
+You can override the plugin's view markup for every helper and delete the
+`[data-link-button]` attribute for the `link_share_button` helper to avoid
+the associated javascript to run.
 
 ## Installation
 
@@ -20,7 +27,7 @@ rails generate share_buttons:install
 
 In your views, use any of the included helpers :
 
-```
+```erb
 <%= facebook_share_button(resource_path(resource), title: resource.title) %>
 <%= twitter_share_button(resource_path(resource), title: resource.title) %>
 <%= google_plus_share_button(resource_path(resource), title: resource.title) %>
