@@ -23,6 +23,18 @@ Use the included generator to generate the initializer file and the customizable
 rails generate share_buttons:install
 ```
 
+## Configuration
+
+For Facebook sharing, you need to add you Facebook APP_ID to the generated
+initializer configuration file in `config/initializers/share_buttons.rb` :
+
+```ruby
+ShareButtons.configure do |config|
+  # Configure your facebook App ID for sharing
+  config.facebook.app_id = ENV['FACEBOOK_KEY']
+end
+```
+
 ## Usage
 
 In your views, use any of the included helpers :
