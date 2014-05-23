@@ -1,2 +1,6 @@
 #= require zeroclipboard
-#= require share_buttons/link
+#= require_self
+#= require share_buttons/popup
+#= require share_buttons/copy
+
+@ShareButtons = {}
