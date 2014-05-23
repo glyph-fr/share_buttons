@@ -1,0 +1,16 @@
+%button.btn.btn-default{ data: { target: "##{ button.dom_id }", :"link-button" => true, :"clipboard-text" => button.url, :title => button.label } }
+  %i.fa.fa-link
+  = button.label
+
+.link-button-alert.collapse{ id: button.dom_id }
+  = text_area_tag :share_link, button.url, disabled: 'disabled', class: 'form-control'
+  %p.help-text
+    Le lien ci-dessus a bien été copié dans votre presse-papier !
+    = link_to "##{ button.dom_id }", data: { toggle: 'collapse' } do
+      %u
+        &times;
+        Masquer
+
+  .clearfix
+
+
