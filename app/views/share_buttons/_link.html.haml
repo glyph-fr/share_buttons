@@ -1,10 +1,12 @@
-%button.btn.btn-default{ data: { share: 'copy', target: "##{ button.dom_id }", :"clipboard-text" => button.url, :title => button.label } }
+%button.btn.btn-default{ type: 'button', data: { share: 'copy', target: "##{ button.dom_id }", :"clipboard-text" => button.url, :title => button.label } }
   %i.fa.fa-link
   = button.label
 
 .link-button-alert.collapse{ id: button.dom_id }
   = text_area_tag :share_link, button.url, disabled: 'disabled', class: 'form-control'
-  %p.help-text
+  %p.help-text.copy-alert-text.collapse.in
+    Sélectionnez l'adresse URL ci-dessus et copiez là
+  %p.help-text.copied-alert-text.collapse
     Le lien ci-dessus a bien été copié dans votre presse-papier !
     = link_to "##{ button.dom_id }", data: { toggle: 'collapse' } do
       %u

@@ -1,14 +1,30 @@
 class ShareButtons.CopyButton
-  constructor: (@$el) ->
-    @clipboard = new ZeroClipboard(@$el[0])
+  constructor: (@$button) ->
+    @clipboard = new ZeroClipboard(@$button[0])
     @clipboard.on('load', => @_initializeClipboardHandlers())
-    @$target = $(@$el.data('target'))
+    @$target = $(@$button.data('target'))
+    @$button.on('click', => @_toggleCollapse())
 
   _initializeClipboardHandlers: ->
     @clipboard.on('complete', => @_linkCopied())
 
+  _toggleCollapse: ->
+    if @$target.hasClass('in') then @_openCollapse() else @_closeCollapse()
+
+  _closeCollapse: ->
+      @$target.collapse('hide')
+
+  _openCollapse: ->
+      @$target.collapse('show')
+
   _linkCopied: ->
-    @$target.collapse('show')
+    @$target.find('.copy-alert-text').hide(0)
+
+    @$target.one 'shown.bs.collapse', =>
+      @$target.find('.copied-alert-text').collapse('show')
+
+    @_openCollapse()
+
 
 
 $ ->
