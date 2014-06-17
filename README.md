@@ -49,6 +49,18 @@ In your views, use any of the included helpers :
 
 And customize the generated views to your needs in `app/views/share_buttons/_<provider>.html.haml`
 
+### Facebook
+
+Facebook's `redirect_uri` parameter will be set to `request.original_url` by
+default but you can pass a custom URL as follow
+
+```erb
+<%= facebook_share_button(resource_path(resource), title: resource.title, redirect_uri: a_custom_url) %>
+```
+
+Useful if you want to handle when user cancelled dialog (e.g. close popup) or
+successfully shared on his wall (e.g. track sharing hits)
+
 ## Licence
 
 This project rocks and uses MIT-LICENSE.
