@@ -4,14 +4,9 @@ module ShareButtons
       'Partager par e-mail'
     end
 
-    private
-
-    def share_url
-      'mailto:'
+    def title
+      options[:title]
     end
 
-    def url_options
-      { subject: options[:title], body: url }
-    end
   end
 end
