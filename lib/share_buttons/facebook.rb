@@ -10,9 +10,14 @@ module ShareButtons
 
     def url_options
       {
-        display: 'popup', redirect_uri: request.original_url,
+        display: 'popup', redirect_uri: redirect_uri,
         app_id: config.app_id, href: url
       }
     end
+
+    def redirect_uri
+      options[:redirect_uri] || request.original_url
+    end
+
   end
 end
