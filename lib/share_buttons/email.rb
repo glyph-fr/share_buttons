@@ -1,7 +1,7 @@
 module ShareButtons
   class Email < ShareButtons::Base
     def label
-      'Partager par e-mail'
+      options.fetch(:label, 'Partager par e-mail')
     end
 
     def title
