@@ -43,6 +43,7 @@ In your views, use any of the included helpers :
 <%= facebook_share_button(resource_path(resource), title: resource.title) %>
 <%= twitter_share_button(resource_path(resource), title: resource.title) %>
 <%= google_plus_share_button(resource_path(resource), title: resource.title) %>
+<%= pinterest_share_button(resource_path(resource), title: resource.title, image_url: resource.image.url) %>
 <%= email_share_button(resource_path(resource), title: resource.title) %>
 <%= link_share_button(resource_path(resource), title: resource.title) %>
 ```

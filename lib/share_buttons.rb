@@ -11,8 +11,9 @@ module ShareButtons
   autoload :GooglePlus, 'share_buttons/google_plus'
   autoload :Email, 'share_buttons/email'
   autoload :Link, 'share_buttons/link'
+  autoload :Pinterest, 'share_buttons/pinterest'
 
-  HELPER_NAMES = %w(facebook twitter google_plus email link)
+  HELPER_NAMES = %w(facebook twitter google_plus pinterest email link)
 
   def self.configure(&block)
     configuration = ShareButtons::Configuration.new
