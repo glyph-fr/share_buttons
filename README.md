@@ -23,6 +23,12 @@ Use the included generator to generate the initializer file and the customizable
 rails generate share_buttons:install
 ```
 
+At last, include the javascript file in your `application.js` with :
+
+```javascript
+//= require share_buttons
+```
+
 ## Configuration
 
 For Facebook sharing, you need to add you Facebook APP_ID to the generated
