@@ -9,5 +9,4 @@ class ShareButtons.PopupButton
   _popupOptions: ->
     'menubar=no, scrollbars=no, top=0, left=0, width=700, height=300'
 
-$ ->
-  $('[data-share="popup"]').each (i, el) -> new ShareButtons.PopupButton($(el))
+ShareButtons.register('popup', ShareButtons.PopupButton)

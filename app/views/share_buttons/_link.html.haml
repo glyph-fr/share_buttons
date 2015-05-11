@@ -3,7 +3,7 @@
   = button.label
 
 .link-button-alert.collapse{ id: button.dom_id }
-  = text_area_tag :share_link, button.url, disabled: 'disabled', class: 'form-control'
+  = text_area_tag :share_link, button.url, readonly: 'readonly', class: 'form-control'
   %p.help-text.copy-alert-text.collapse.in
     Sélectionnez l'adresse URL ci-dessus et copiez là
   %p.help-text.copied-alert-text.collapse

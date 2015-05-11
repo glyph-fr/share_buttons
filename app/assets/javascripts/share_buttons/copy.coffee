@@ -3,12 +3,12 @@ class ShareButtons.CopyButton
     @clipboard = new ZeroClipboard(@$button[0])
     @clipboard.on('load', => @_initializeClipboardHandlers())
     @$target = $(@$button.data('target'))
-    @$button.on('click', => @_toggleModal())
+    @$button.on('click', => @_buttonClicked())
 
   _initializeClipboardHandlers: ->
     @clipboard.on('complete', => @_linkCopied())
 
-  _toggleModal: ->
+  _buttonClicked: ->
     if @$target.hasClass('in') then @_openModal() else @_closeModal()
 
   _closeModal: ->
@@ -25,7 +25,4 @@ class ShareButtons.CopyButton
 
     @_openModal()
 
-
-
-$ ->
-  $('[data-share="copy"]').each (i, el) -> new ShareButtons.CopyButton($(el))
+ShareButtons.register('copy', ShareButtons.CopyButton)
