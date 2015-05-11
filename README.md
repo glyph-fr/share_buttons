@@ -14,7 +14,7 @@ the associated javascript to run.
 Add to your Gemfile and `bundle install` :
 
 ```ruby
-gem 'share_buttons', github: 'glyph-fr/share_buttons'
+gem 'share_buttons'
 ```
 
 Use the included generator to generate the initializer file and the customizable views :
