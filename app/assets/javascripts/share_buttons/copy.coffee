@@ -2,26 +2,26 @@ class ShareButtons.CopyButton
   constructor: (@$button) ->
     @clipboard = new ZeroClipboard(@$button[0])
     @clipboard.on('load', => @_initializeClipboardHandlers())
-    @$target = $(@$button.data('target'))
+    @$modal = $(@$button.data('target'))
     @$button.on('click', => @_buttonClicked())
 
   _initializeClipboardHandlers: ->
     @clipboard.on('complete', => @_linkCopied())
 
   _buttonClicked: ->
-    if @$target.hasClass('in') then @_openModal() else @_closeModal()
+    if @$modal.hasClass('in') then @_openModal() else @_closeModal()
 
   _closeModal: ->
-      @$target.modal('hide')
+      @$modal.modal('hide')
 
   _openModal: ->
-      @$target.modal('show')
+      @$modal.modal('show')
 
   _linkCopied: ->
-    @$target.find('.copy-alert-text').hide(0)
+    @$modal.find('.copy-alert-text').hide(0)
 
-    @$target.one 'shown.bs.modal', =>
-      @$target.find('.copied-alert-text').collapse('show')
+    @$modal.one 'shown.bs.modal', =>
+      @$modal.find('.copied-alert-text').collapse('show')
 
     @_openModal()
 
