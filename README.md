@@ -68,6 +68,27 @@ default but you can pass a custom URL as follow
 Useful if you want to handle when user cancelled dialog (e.g. close popup) or
 successfully shared on his wall (e.g. track sharing hits)
 
+### Initializing plugins manually (async modals & co)
+
+Sometimes you need to manually initialize the javascript plugins, like when the
+buttons where added to the page after the actual page loading, in a modal or
+in some other way.
+
+All you need to do, is find the newly loaded container, and initialize the
+`.shareButtons()` plugin on it. This way, all the contained share buttons will
+be initialized.
+
+```javascript
+// Let's imagine you're loading a modal through ajax
+$.get('/lodal/modal').then(function(response) {
+  $response = $(response);
+  $response.appendTo('body').modal();
+  // Now that you have the jQuery object containing the share buttons,
+  // just initialize the plugin on it
+  $response.shareButtons();
+})
+```
+
 ## Licence
 
 This project rocks and uses MIT-LICENSE.
