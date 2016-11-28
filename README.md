@@ -31,13 +31,13 @@ At last, include the javascript file in your `application.js` with :
 
 ## Configuration
 
-For Facebook sharing, you need to add you Facebook APP_ID to the generated
-initializer configuration file in `config/initializers/share_buttons.rb` :
+For Facebook sharing, you need to set the `FACEBOOK_APP_ID` environment variable
+or add your Facebook App Id to the generated initializer configuration file at
+`config/initializers/share_buttons.rb` :
 
 ```ruby
 ShareButtons.configure do |config|
-  # Configure your facebook App ID for sharing
-  config.facebook.app_id = ENV['FACEBOOK_KEY']
+  config.facebook.app_id = 'YOUR_APP_ID'
 end
 ```
 
@@ -46,15 +46,18 @@ end
 In your views, use any of the included helpers :
 
 ```erb
-<%= facebook_share_button(resource_path(resource), title: resource.title) %>
-<%= twitter_share_button(resource_path(resource), title: resource.title) %>
-<%= google_plus_share_button(resource_path(resource), title: resource.title) %>
-<%= pinterest_share_button(resource_path(resource), title: resource.title, image_url: resource.image.url) %>
-<%= email_share_button(resource_path(resource), title: resource.title) %>
-<%= link_share_button(resource_path(resource), title: resource.title) %>
+<%= facebook_share_button(resource_url(resource), title: resource.title) %>
+<%= twitter_share_button(resource_url(resource), title: resource.title) %>
+<%= google_plus_share_button(resource_url(resource), title: resource.title) %>
+<%= pinterest_share_button(resource_url(resource), title: resource.title, image_url: resource.image.url) %>
+<%= email_share_button(resource_url(resource), title: resource.title) %>
+<%= link_share_button(resource_url(resource), title: resource.title) %>
 ```
 
 And customize the generated views to your needs in `app/views/share_buttons/_<provider>.html.haml`
+
+> **Note** : Do not forget to use **URL** helpers and not Path helpers since the
+final URL is to be shared on other websites.
 
 ### Facebook
 

@@ -1,3 +1,3 @@
-= mail_to nil, body: button.url, subject: button.title, class: 'btn btn-default', data: { share: 'email' } do
+= mail_to nil, body: button.url, subject: button.title, class: button.button_class, data: { share: 'email' } do
   %i.fa.fa-envelope
   = button.label

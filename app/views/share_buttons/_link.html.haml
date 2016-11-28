@@ -1,4 +1,4 @@
-%button.btn.btn-default{ type: 'button', data: { share: 'copy', target: "##{ button.dom_id }", :"clipboard-text" => button.url, :title => button.label } }
+%button{ class: button.button_class, type: 'button', data: { share: 'copy', target: "##{ button.dom_id }", :"clipboard-text" => button.url, :title => button.label } }
   %i.fa.fa-link
   = button.label
 

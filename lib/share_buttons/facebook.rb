@@ -1,6 +1,6 @@
 module ShareButtons
   class Facebook < ShareButtons::Base
-    cattr_accessor :app_id
+    class_attribute :app_id
 
     private
 
@@ -11,7 +11,7 @@ module ShareButtons
     def url_options
       {
         display: 'popup', redirect_uri: redirect_uri,
-        app_id: config.app_id, href: url
+        app_id: app_id, href: url
       }
     end
 
@@ -19,5 +19,8 @@ module ShareButtons
       options[:redirect_uri] || request.original_url
     end
 
+    def app_id
+      @app_id ||= ENV['FACEBOOK_APP_ID'] || config.app_id
+    end
   end
 end

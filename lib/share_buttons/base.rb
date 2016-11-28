@@ -16,6 +16,10 @@ module ShareButtons
       options.fetch(:label, "Partager sur #{ medium_name }")
     end
 
+    def button_class
+      options.fetch(:button_class, 'btn btn-default')
+    end
+
     def medium_name
       self.class.name.demodulize.underscore.humanize
     end

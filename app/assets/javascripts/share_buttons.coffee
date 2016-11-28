@@ -9,8 +9,8 @@
   # Custom page ready handler allowing to automatically handle apps with or
   # without Turbolinks
   onPageReady: (callback) ->
-    $(document).ready(-> callback() unless window.Turbolinks)
-    $(document).on('page:change', callback);
+    $(document).ready(-> callback() unless window.Turbolinks?.supported)
+    $(document).on('page:change turbolinks:load', callback)
 
   register: (type, plugin) ->
     ShareButtons._plugins[type] = plugin

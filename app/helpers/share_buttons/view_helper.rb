@@ -22,6 +22,7 @@ module ShareButtons
           options = {}
         end
       end
+
       [url, options]
     end
   end
